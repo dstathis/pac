@@ -28,4 +28,22 @@ int main(int argc, char* argv[]) {
 	if (strcmp(argv[1], "localfiles") == 0) {
 		return system(("pacman -Ql" + remaining_args).c_str());
 	}
+	if (strcmp(argv[1], "remove") == 0) {
+		return system(("pacman -Rs" + remaining_args).c_str());
+	}
+	if (strcmp(argv[1], "update") == 0) {
+		return system(("pacman -Syu" + remaining_args).c_str());
+	}
+	if (strcmp(argv[1], "clean") == 0) {
+		return system(("pacman -Scc" + remaining_args).c_str());
+	}
+	if (strcmp(argv[1], "autoremove") == 0) {
+		return system("pacman -Qdtq | pacman -Rs -");
+	}
+	if (strcmp(argv[1], "download") == 0) {
+		return system(("pacman -Sw" + remaining_args).c_str());
+	}
+	if (strcmp(argv[1], "clean") == 0) {
+		return system(("pacman -Sc" + remaining_args).c_str());
+	}
 }
